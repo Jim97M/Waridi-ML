@@ -1,0 +1,424 @@
+table_schema,table_name,column_name,data_type,is_nullable,column_default
+public,Apartments,id,integer,NO,"nextval('""Apartments_id_seq""'::regclass)"
+public,Apartments,logent_id,integer,YES,
+public,Apartments,apartment_name,character varying,YES,
+public,Apartments,apartment_location,character varying,YES,
+public,Apartments,apartment_description,text,YES,
+public,Apartments,address,text,YES,
+public,Apartments,latitude,numeric,YES,
+public,Apartments,longitude,numeric,YES,
+public,Apartments,type1,character varying,YES,
+public,Apartments,name1,character varying,YES,
+public,Apartments,data1,bytea,YES,
+public,Apartments,type2,character varying,YES,
+public,Apartments,name2,character varying,YES,
+public,Apartments,data2,bytea,YES,
+public,Apartments,type3,character varying,YES,
+public,Apartments,name3,character varying,YES,
+public,Apartments,data3,bytea,YES,
+public,Apartments,type4,character varying,YES,
+public,Apartments,name4,character varying,YES,
+public,Apartments,data4,bytea,YES,
+public,Apartments,createdAt,timestamp with time zone,NO,
+public,Apartments,updatedAt,timestamp with time zone,NO,
+public,Roles,id,integer,NO,"nextval('""Roles_id_seq""'::regclass)"
+public,Roles,roleName,character varying,YES,
+public,Roles,active,boolean,YES,
+public,Roles,createdAt,timestamp with time zone,NO,
+public,Roles,updatedAt,timestamp with time zone,NO,
+public,SequelizeMeta,name,character varying,NO,
+public,agent_documents,id,integer,NO,nextval('agent_documents_id_seq'::regclass)
+public,agent_documents,agent_profile_id,integer,NO,
+public,agent_documents,agent_passport_photo,character varying,YES,
+public,agent_documents,front_id_photo,character varying,YES,
+public,agent_documents,back_id_photo,character varying,YES,
+public,agent_documents,file_size,integer,YES,
+public,agent_documents,upload_date,timestamp with time zone,YES,
+public,agent_documents,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,agent_documents,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,agent_location,id,integer,NO,nextval('agent_location_id_seq'::regclass)
+public,agent_location,agent_profile_id,integer,NO,
+public,agent_location,agent_county,character varying,NO,
+public,agent_location,agent_subcounty,character varying,NO,
+public,agent_location,agent_town,character varying,YES,
+public,agent_location,agent_street,character varying,NO,
+public,agent_location,agent_location_description,character varying,YES,
+public,agent_location,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,agent_location,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,agent_locations,id,integer,NO,nextval('agent_locations_id_seq'::regclass)
+public,agent_locations,agent_profile_id,integer,NO,
+public,agent_locations,agent_county,character varying,NO,
+public,agent_locations,agent_subcounty,character varying,NO,
+public,agent_locations,agent_town,character varying,YES,
+public,agent_locations,agent_street,character varying,NO,
+public,agent_locations,agent_location_description,character varying,YES,
+public,agent_locations,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,agent_locations,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,agent_notifications,id,integer,NO,nextval('agent_notifications_id_seq'::regclass)
+public,agent_notifications,agent_id,integer,NO,
+public,agent_notifications,notification_title,character varying,NO,
+public,agent_notifications,notification_message,text,NO,
+public,agent_notifications,is_read,boolean,YES,false
+public,agent_notifications,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,agent_notifications,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,agent_profile,id,integer,NO,nextval('agent_profile_id_seq'::regclass)
+public,agent_profile,user_id,integer,NO,
+public,agent_profile,agent_fname,character varying,NO,
+public,agent_profile,agent_lname,character varying,NO,
+public,agent_profile,agent_mname,character varying,YES,
+public,agent_profile,agent_phonenumber,character varying,NO,
+public,agent_profile,agent_idno,integer,NO,
+public,agent_profile,agent_gender,character varying,YES,
+public,agent_profile,agent_verified,USER-DEFINED,NO,'PENDING'::enum_agent_profile_agent_verified
+public,agent_profile,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,agent_profile,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,agent_profiles,id,integer,NO,nextval('agent_profiles_id_seq'::regclass)
+public,agent_profiles,user_id,integer,NO,
+public,agent_profiles,agent_fname,character varying,NO,
+public,agent_profiles,agent_lname,character varying,NO,
+public,agent_profiles,agent_mname,character varying,YES,
+public,agent_profiles,agent_phonenumber,character varying,NO,
+public,agent_profiles,agent_idno,integer,NO,
+public,agent_profiles,agent_gender,character varying,YES,
+public,agent_profiles,agent_description,text,YES,
+public,agent_profiles,agent_verified,USER-DEFINED,NO,'PENDING'::enum_agent_profiles_agent_verified
+public,agent_profiles,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,agent_profiles,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,agent_profiles,is_agent_verified,boolean,NO,false
+public,agents,id,integer,NO,nextval('agents_id_seq'::regclass)
+public,agents,userId,integer,NO,
+public,agents,agent_fname,character varying,NO,
+public,agents,agent_lname,character varying,NO,
+public,agents,agent_phonenumber,character varying,NO,
+public,agents,agent_idno,integer,NO,
+public,agents,agent_location,character varying,YES,
+public,agents,agent_avatar,character varying,YES,
+public,agents,type,bytea,YES,
+public,agents,agent_gender,character varying,YES,
+public,agents,agent_id_photo,character varying,YES,
+public,agents,agent_address,character varying,YES,
+public,agents,agent_verified,USER-DEFINED,NO,'PENDING'::enum_agents_agent_verified
+public,agents,agent_specialization,character varying,YES,
+public,agents,agent_description,text,YES,
+public,agents,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,agents,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,apartment_comments,id,integer,NO,nextval('apartment_comments_id_seq'::regclass)
+public,apartment_comments,content,text,NO,
+public,apartment_comments,user_id,integer,NO,
+public,apartment_comments,apartment_id,integer,NO,
+public,apartment_comments,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,apartment_comments,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,apartment_files,id,integer,NO,nextval('apartment_files_id_seq'::regclass)
+public,apartment_files,apartment_id,integer,NO,
+public,apartment_files,first_image,character varying,YES,
+public,apartment_files,second_image,character varying,YES,
+public,apartment_files,third_image,character varying,YES,
+public,apartment_files,fourth_image,character varying,YES,
+public,apartment_files,video_path,character varying,YES,
+public,apartment_files,file_size,integer,YES,
+public,apartment_files,uploaded_by,integer,NO,
+public,apartment_files,upload_date,timestamp with time zone,YES,
+public,apartment_files,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,apartment_files,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,apartment_locations,id,integer,NO,nextval('apartment_locations_id_seq'::regclass)
+public,apartment_locations,country,character varying,YES,
+public,apartment_locations,apartment_id,integer,YES,
+public,apartment_locations,county,character varying,YES,
+public,apartment_locations,city_town,character varying,YES,
+public,apartment_locations,latitude,character varying,YES,
+public,apartment_locations,longitude,character varying,YES,
+public,apartment_locations,address,text,YES,
+public,apartment_locations,location_description,character varying,YES,
+public,apartment_locations,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,apartment_locations,updateAt,timestamp with time zone,YES,CURRENT_TIMESTAMP
+public,apartment_locations,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,apartment_payment_plans,id,integer,NO,nextval('apartment_payment_plans_id_seq'::regclass)
+public,apartment_payment_plans,apartment_id,integer,YES,
+public,apartment_payment_plans,unit_type,integer,YES,
+public,apartment_payment_plans,plan_duration,character varying,YES,
+public,apartment_payment_plans,pricing_amount,character varying,YES,
+public,apartment_payment_plans,plan_description,text,YES,
+public,apartment_payment_plans,currency_type,character varying,YES,
+public,apartment_payment_plans,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,apartment_payment_plans,updateAt,timestamp with time zone,YES,CURRENT_TIMESTAMP
+public,apartment_payment_plans,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,apartment_properties,id,integer,NO,nextval('apartment_properties_id_seq'::regclass)
+public,apartment_properties,number_of_units,character varying,YES,
+public,apartment_properties,apartment_id,integer,YES,
+public,apartment_properties,number_of_one_bd,integer,YES,
+public,apartment_properties,number_of_two_bd,integer,YES,
+public,apartment_properties,number_of_three_bd,integer,YES,
+public,apartment_properties,number_of_four_bd,integer,YES,
+public,apartment_properties,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,apartment_properties,updateAt,timestamp with time zone,YES,CURRENT_TIMESTAMP
+public,apartment_properties,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,cartitems,id,integer,NO,nextval('cartitems_id_seq'::regclass)
+public,cartitems,userId,integer,NO,
+public,cartitems,productId,integer,NO,
+public,cartitems,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,cartitems,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,comments,id,uuid,NO,
+public,comments,content,text,NO,
+public,comments,authorId,integer,NO,
+public,comments,postId,uuid,NO,
+public,comments,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,comments,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,connections,id,integer,NO,nextval('connections_id_seq'::regclass)
+public,connections,userId,integer,NO,
+public,connections,connectionId,integer,NO,
+public,connections,status,USER-DEFINED,YES,'pending'::enum_connections_status
+public,connections,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,connections,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,friendrequests,id,integer,NO,nextval('friendrequests_id_seq'::regclass)
+public,friendrequests,status,USER-DEFINED,NO,'pending'::enum_friendrequests_status
+public,friendrequests,senderId,integer,NO,
+public,friendrequests,receiverId,integer,NO,
+public,friendrequests,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,friendrequests,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,landlords,id,integer,NO,nextval('landlords_id_seq'::regclass)
+public,landlords,userId,integer,YES,
+public,landlords,landlord_fname,character varying,YES,
+public,landlords,landlord_lname,character varying,YES,
+public,landlords,landlord_idno,integer,YES,
+public,landlords,landlord_phonenumber,integer,YES,
+public,landlords,landlord_location,character varying,YES,
+public,landlords,landlord_avatar,character varying,YES,
+public,landlords,type,bytea,YES,
+public,landlords,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,landlords,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,likes,id,uuid,NO,
+public,likes,userId,integer,NO,
+public,likes,postId,uuid,NO,
+public,likes,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,likes,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,markets,id,integer,NO,nextval('markets_id_seq'::regclass)
+public,markets,sellerId,integer,YES,
+public,markets,product_quantity,integer,YES,
+public,markets,product_name,character varying,YES,
+public,markets,product_description,character varying,YES,
+public,markets,product_price,integer,YES,
+public,markets,type,character varying,YES,
+public,markets,product_image,character varying,YES,
+public,markets,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,markets,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,media,id,uuid,NO,
+public,media,url,character varying,NO,
+public,media,type,USER-DEFINED,NO,
+public,media,uploadedBy,integer,NO,
+public,media,usedInPost,boolean,YES,false
+public,media,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,media,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,messages,id,integer,NO,nextval('messages_id_seq'::regclass)
+public,messages,senderId,integer,YES,
+public,messages,receiverId,integer,YES,
+public,messages,messageType,character varying,YES,
+public,messages,message,text,YES,
+public,messages,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,messages,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,notificationtokens,id,integer,NO,nextval('notificationtokens_id_seq'::regclass)
+public,notificationtokens,userId,integer,NO,
+public,notificationtokens,deviceToken,character varying,NO,
+public,notificationtokens,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,notificationtokens,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,notify,id,integer,NO,nextval('notify_id_seq'::regclass)
+public,notify,belongsTo,integer,YES,
+public,notify,message,text,YES,
+public,notify,notification_avatar,character varying,NO,
+public,notify,title,text,YES,
+public,notify,type,bytea,YES,
+public,notify,timestamp,timestamp with time zone,YES,CURRENT_TIMESTAMP
+public,notify,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,notify,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,otp,id,integer,NO,nextval('otp_id_seq'::regclass)
+public,otp,email,character varying,YES,
+public,otp,code,character varying,YES,
+public,otp,createdAt,timestamp with time zone,YES,
+public,otp,expired,boolean,YES,false
+public,otp,expireIn,timestamp with time zone,YES,
+public,otp,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,otp_sessions,id,integer,NO,nextval('otp_sessions_id_seq'::regclass)
+public,otp_sessions,challengeId,uuid,NO,
+public,otp_sessions,otpId,integer,NO,
+public,otp_sessions,email,character varying,NO,
+public,otp_sessions,createdAt,timestamp with time zone,NO,
+public,otp_sessions,expiresAt,timestamp with time zone,NO,
+public,otp_sessions,active,boolean,NO,true
+public,otps,id,integer,NO,nextval('otps_id_seq'::regclass)
+public,otps,email,character varying,YES,
+public,otps,code,character varying,YES,
+public,otps,createdAt,timestamp with time zone,YES,
+public,otps,expireIn,timestamp with time zone,YES,
+public,otps,updatedAt,timestamp with time zone,YES,
+public,otps,expired,boolean,YES,false
+public,otps,purpose,character varying,YES,
+public,payments,id,integer,NO,nextval('payments_id_seq'::regclass)
+public,payments,totalPrice,integer,YES,0
+public,payments,isActive,boolean,YES,true
+public,payments,totalQuantity,integer,YES,0
+public,payments,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,payments,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,posts,id,uuid,NO,
+public,posts,content,text,YES,
+public,posts,imageUrl,character varying,YES,
+public,posts,videoUrl,character varying,YES,
+public,posts,authorId,integer,NO,
+public,posts,originalPostId,uuid,YES,
+public,posts,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,posts,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,properties,id,integer,NO,nextval('properties_id_seq'::regclass)
+public,properties,agent_id,integer,YES,
+public,properties,apartment_name,character varying,YES,
+public,properties,apartment_location,character varying,YES,
+public,properties,apartment_county,character varying,YES,
+public,properties,apartment_type,character varying,YES,
+public,properties,apartment_description,text,YES,
+public,properties,apartment_price,character varying,YES,
+public,properties,apartment_previous_price,character varying,YES,
+public,properties,address,text,YES,
+public,properties,latitude,character varying,YES,
+public,properties,longitude,character varying,YES,
+public,properties,type1,character varying,YES,
+public,properties,name1,character varying,YES,
+public,properties,data1,bytea,YES,
+public,properties,type2,character varying,YES,
+public,properties,name2,character varying,YES,
+public,properties,data2,bytea,YES,
+public,properties,type3,character varying,YES,
+public,properties,name3,character varying,YES,
+public,properties,data3,bytea,YES,
+public,properties,type4,character varying,YES,
+public,properties,name4,character varying,YES,
+public,properties,data4,bytea,YES,
+public,properties,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,properties,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,properties,land_size,character varying,YES,
+public,properties,land_size_unit,character varying,YES,
+public,properties,land_use,character varying,YES,
+public,properties,title_deed_status,character varying,YES,
+public,properties,land_price,character varying,YES,
+public,properties,land_currency,character varying,YES,
+public,properties,plot_number,character varying,YES,
+public,properties,road_access,character varying,YES,
+public,properties,utilities_available,character varying,YES,
+public,property_facilities,id,integer,NO,nextval('property_facilities_id_seq'::regclass)
+public,property_facilities,facility_name,character varying,YES,
+public,property_facilities,property_id,integer,YES,
+public,property_facilities,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,property_facilities,updateAt,timestamp with time zone,YES,CURRENT_TIMESTAMP
+public,property_facilities,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,property_files,id,integer,NO,nextval('property_files_id_seq'::regclass)
+public,property_files,property_id,integer,NO,
+public,property_files,first_image,character varying,YES,
+public,property_files,second_image,character varying,YES,
+public,property_files,third_image,character varying,YES,
+public,property_files,fourth_image,character varying,YES,
+public,property_files,video_path,character varying,YES,
+public,property_files,file_size,integer,YES,
+public,property_files,uploaded_by,integer,NO,
+public,property_files,upload_date,timestamp with time zone,YES,
+public,property_files,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,property_files,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,property_locations,id,integer,NO,nextval('property_locations_id_seq'::regclass)
+public,property_locations,country,character varying,YES,
+public,property_locations,property_id,integer,YES,
+public,property_locations,county,character varying,YES,
+public,property_locations,city_town,character varying,YES,
+public,property_locations,latitude,character varying,YES,
+public,property_locations,longitude,character varying,YES,
+public,property_locations,address,text,YES,
+public,property_locations,location_description,character varying,YES,
+public,property_locations,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,property_locations,updateAt,timestamp with time zone,YES,CURRENT_TIMESTAMP
+public,property_locations,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,property_properties,id,integer,NO,nextval('property_properties_id_seq'::regclass)
+public,property_properties,property_id,integer,YES,
+public,property_properties,bedrooms,character varying,YES,
+public,property_properties,bathrooms,character varying,YES,
+public,property_properties,kitchen,character varying,YES,
+public,property_properties,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,property_properties,updateAt,timestamp with time zone,YES,CURRENT_TIMESTAMP
+public,property_properties,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,rent_pricings,id,integer,NO,nextval('rent_pricings_id_seq'::regclass)
+public,rent_pricings,unit_type,character varying,YES,
+public,rent_pricings,rent_time_rate,character varying,YES,
+public,rent_pricings,unit_rent_price,character varying,YES,
+public,rent_pricings,apartment_id,integer,YES,
+public,rent_pricings,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,rent_pricings,updateAt,timestamp with time zone,YES,CURRENT_TIMESTAMP
+public,rent_pricings,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,rental_apartment,id,integer,NO,nextval('rental_apartment_id_seq'::regclass)
+public,rental_apartment,agent_id,integer,YES,
+public,rental_apartment,landlord_id,integer,YES,
+public,rental_apartment,apartment_name,character varying,YES,
+public,rental_apartment,apartment_type,character varying,YES,
+public,rental_apartment,apartment_slug,character varying,YES,
+public,rental_apartment,apartment_description,text,YES,
+public,rental_apartment,createdAt,timestamp with time zone,YES,CURRENT_TIMESTAMP
+public,rental_apartment,updateAt,timestamp with time zone,YES,CURRENT_TIMESTAMP
+public,rental_apartment,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,rental_facilities,id,integer,NO,nextval('rental_facilities_id_seq'::regclass)
+public,rental_facilities,facility_name,character varying,YES,
+public,rental_facilities,service_provider,character varying,YES,
+public,rental_facilities,provider_contact,character varying,YES,
+public,rental_facilities,apartment_id,integer,YES,
+public,rental_facilities,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,rental_facilities,updateAt,timestamp with time zone,YES,CURRENT_TIMESTAMP
+public,rental_facilities,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,roles,id,integer,NO,nextval('roles_id_seq'::regclass)
+public,roles,roleName,character varying,YES,
+public,roles,active,boolean,YES,
+public,roles,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,roles,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,tenants,id,integer,NO,nextval('tenants_id_seq'::regclass)
+public,tenants,userId,integer,YES,
+public,tenants,logentId,integer,YES,
+public,tenants,tenant_fname,character varying,YES,
+public,tenants,tenant_lname,character varying,YES,
+public,tenants,tenant_location,character varying,YES,
+public,tenants,tenant_idno,integer,YES,
+public,tenants,tenant_phonenumber,integer,YES,
+public,tenants,tenant_avatar,character varying,YES,
+public,tenants,type,character varying,YES,
+public,tenants,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,tenants,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,userprofiles,id,integer,NO,nextval('userprofiles_id_seq'::regclass)
+public,userprofiles,userId,integer,YES,
+public,userprofiles,user_fname,character varying,YES,
+public,userprofiles,user_lname,character varying,YES,
+public,userprofiles,user_location,character varying,YES,
+public,userprofiles,user_phonenumber,bigint,YES,
+public,userprofiles,user_avatar,character varying,NO,'https://api.waridi.org/images/userprofile.png'::character varying
+public,userprofiles,type,character varying,YES,
+public,userprofiles,followers,ARRAY,YES,ARRAY[]::integer[]
+public,userprofiles,following,ARRAY,YES,ARRAY[]::integer[]
+public,userprofiles,pendingConnections,ARRAY,YES,ARRAY[]::integer[]
+public,userprofiles,acceptedConnections,ARRAY,YES,ARRAY[]::integer[]
+public,userprofiles,rejectedConnections,ARRAY,YES,ARRAY[]::integer[]
+public,userprofiles,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,userprofiles,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,users,id,integer,NO,nextval('users_id_seq'::regclass)
+public,users,roleId,integer,YES,
+public,users,username,character varying,YES,
+public,users,email,character varying,YES,
+public,users,password,character varying,YES,
+public,users,confirm_password,character varying,YES,
+public,users,accessToken,text,YES,
+public,users,resetPasswordToken,text,YES,
+public,users,resetPasswordExpires,timestamp with time zone,YES,
+public,users,dateofbirth,text,YES,
+public,users,description,text,YES,
+public,users,user_avatar,character varying,NO,'https://api.waridi.org/images/userprofile.png'::character varying
+public,users,type,bytea,YES,
+public,users,verified,boolean,YES,false
+public,users,active,boolean,YES,
+public,users,connectionsRequest,ARRAY,YES,
+public,users,connectionRequestSent,ARRAY,YES,
+public,users,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,users,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,users,two_factor_enabled,boolean,NO,false
+public,users,settings,jsonb,NO,"'{""weeklySummary"": true, ""emailNotifications"": true}'::jsonb"
+public,verificationtokens,id,integer,NO,nextval('verificationtokens_id_seq'::regclass)
+public,verificationtokens,userId,character varying,YES,
+public,verificationtokens,token,character varying,YES,
+public,verificationtokens,createdAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
+public,verificationtokens,updatedAt,timestamp with time zone,NO,CURRENT_TIMESTAMP
